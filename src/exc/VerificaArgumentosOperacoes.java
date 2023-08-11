@@ -13,13 +13,13 @@ public class VerificaArgumentosOperacoes {
 		int indexInicialProcura;
 		
 		for (int i = 2; i < tokensOperadores.size(); i++) {
-			boolean simboloValido1 = false, simboloValido2 = false;
 			
 			char op = tokensOperadores.get(i);
 			if (op == '~')
 			{
 				indexInicialProcura = 0;
 				while (entrada.indexOf(op, indexInicialProcura) != -1) {
+					boolean simboloValido2 = false;
 					int indexOp = entrada.indexOf(op, indexInicialProcura);
 					
 					// Analisa o simbolo seguinte ao operador NOT
@@ -59,6 +59,7 @@ public class VerificaArgumentosOperacoes {
 			{
 				indexInicialProcura = 0;
 				while (entrada.indexOf(op, indexInicialProcura) != -1) {
+					boolean simboloValido1 = false, simboloValido2 = false;
 					int indexOp = entrada.indexOf(op, indexInicialProcura);
 					
 					// Analisa o simbolo anterior ao operador
