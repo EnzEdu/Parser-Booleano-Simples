@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainParser {
-	private static int numTestes = 3;
+	private static int numTestes = 4;
 	
 	public static void main(String[] args) {
 	
 		// Parser
 		ArrayList<Character> tokensOperadores = new ArrayList<>(
-				Arrays.asList('~', '(', ')', '&', '^', '|'));
+				Arrays.asList('(', ')', '~', '&', '^', '|'));
 		
 		ArrayList<Character> tokensNumeros = new ArrayList<>(
 				Arrays.asList('0', '1'));
@@ -48,6 +48,8 @@ public class MainParser {
 				case 1: nadaDeErrado = VerificaNumeroParenteses.testar(entrada);
 									   break;
 				case 2: nadaDeErrado = VerificaOrdenacaoParenteses.testar(entrada);
+									   break;
+				case 3: nadaDeErrado = VerificaArgumentosOperacoes.testar(entrada, tokensOperadores, tokensNumeros);
 									   break;
 			}
 		}

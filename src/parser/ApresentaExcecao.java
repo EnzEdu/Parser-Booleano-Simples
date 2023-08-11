@@ -12,6 +12,8 @@ public class ApresentaExcecao {
 					break;
 			case 2: System.out.println("Erro de sintaxe! A expressao possui um par de parenteses na ordem errada.");
 					break;
+			case 3: System.out.println("Erro de sintaxe! A expressao possui uma operacao invalida.");
+					break;
 		}
 		
 	}
