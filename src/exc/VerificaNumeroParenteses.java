@@ -1,9 +1,9 @@
 package exc;
 
 /*
- * Se houver, contabiliza todos os pares de parenteses
- * da entrada fornecida ao programa.
- * 
+ * Se houver, verifica todos os pares de parenteses
+ * da equacao fornecida ao programa.
+ * (analisa se cada abre parenteses tem o seu fecha parenteses)
 */
 public class VerificaNumeroParenteses {
 

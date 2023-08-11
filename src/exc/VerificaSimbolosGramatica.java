@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /*
  * Testa se todos os simbolos da entrada
  * pertencem a gramatica do programa.
- * 
 */
 public class VerificaSimbolosGramatica {
 

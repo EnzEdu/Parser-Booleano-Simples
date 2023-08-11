@@ -3,9 +3,8 @@ package exc;
 import java.util.ArrayList;
 
 /*
- * Testa se todos os simbolos da entrada
- * pertencem a gramatica do programa.
- * 
+ * Verifica se todos os numeros da equacao estao
+ * cercados por operadores.
 */
 public class VerificaPosicaoNumeros {
 

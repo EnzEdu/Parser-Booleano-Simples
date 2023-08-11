@@ -3,8 +3,8 @@ package exc;
 import java.util.ArrayList;
 
 /*
- * Se houver, verifica a ordenacao de todos os pares de parenteses
- * da entrada fornecida ao programa.
+ * Verifica os simbolos adjacentes de cada operador booleano
+ * da equacao fornecida ao programa.
 */
 public class VerificaArgumentosOperacoes {
 

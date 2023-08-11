@@ -3,6 +3,7 @@ package exc;
 /*
  * Se houver, verifica a ordenacao de todos os pares de parenteses
  * da entrada fornecida ao programa.
+ * (analisa se os abre parenteses vem primeiro que os fecha parenteses)
 */
 public class VerificaOrdenacaoParenteses {
 
