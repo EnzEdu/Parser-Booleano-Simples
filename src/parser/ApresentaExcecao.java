@@ -14,6 +14,8 @@ public class ApresentaExcecao {
 					break;
 			case 3: System.out.println("Erro de sintaxe! A expressao possui uma operacao invalida.");
 					break;
+			case 4: System.out.println("Erro de sintaxe! A expressao possui uma interacao invalida com alguma das variaveis.");
+			break;
 		}
 		
 	}

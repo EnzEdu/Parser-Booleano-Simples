@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainParser {
-	private static int numTestes = 4;
+	private static int numTestes = 5;
 	
 	public static void main(String[] args) {
 	
@@ -50,6 +50,8 @@ public class MainParser {
 				case 2: nadaDeErrado = VerificaOrdenacaoParenteses.testar(entrada);
 									   break;
 				case 3: nadaDeErrado = VerificaArgumentosOperacoes.testar(entrada, tokensOperadores, tokensNumeros);
+									   break;
+				case 4: nadaDeErrado = VerificaPosicaoNumeros.testar(entrada, tokensOperadores, tokensNumeros);
 									   break;
 			}
 		}
