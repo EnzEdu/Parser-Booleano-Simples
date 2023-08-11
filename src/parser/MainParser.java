@@ -13,74 +13,75 @@ public class MainParser {
 	
 	public static void main(String[] args) {
 	
-		// Parser
+		// Estruturas padroes do parser
 		ArrayList<Character> tokensOperadores = new ArrayList<>(
 				Arrays.asList('(', ')', '~', '&', '^', '|'));
 		
 		ArrayList<Character> tokensNumeros = new ArrayList<>(
 				Arrays.asList('0', '1'));
 		
+		String equacaoPadrao = "~1 | (0^1 | 0&0)";
+		String entrada = "";
 		
 		
-		String entrada   = "~1 | (0^1 | 0&0)".replaceAll(" ", "");
-		String expressao = "";
 		
-		if (args.length != 0)
-		//if (args.length == 0)
-		{
+		try {
 			
-			try {
-				// Cria o FileInputStream para ler o arquivo passado como parametro
-				FileInputStream fis = new FileInputStream(args[0]);
-				//FileInputStream fis = new FileInputStream("equacao.txt");
+			// Cria o FileInputStream para ler o arquivo passado como parametro
+			FileInputStream fis;
+			if (args.length != 0)
+			{
+				fis = new FileInputStream(args[0]);
+			}
+			else	
+			{
+				fis = new FileInputStream("equacao.txt");
+			}
 				
-				// Cria o BufferedReader
-				BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+			// Cria o BufferedReader
+			BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 			
-				// Faz a leitura linha por linha
-				String linha;
-				int numLinha = -1;
-				while ((linha = br.readLine()) != null)
-				{
-					numLinha++;
+			// Faz a leitura linha por linha
+			String linha;
+			int numLinha = -1;
+			while ((linha = br.readLine()) != null)
+			{
+				numLinha++;
 					
-					// Salva apenas as duas primeiras linhas do arquivo
-					if (numLinha < 1)
-					{
-						entrada = linha;
-					}
+				// Salva apenas a primeira linha do arquivo
+				if (numLinha < 1)
+				{
+					entrada = linha.replaceAll(" ", "");
 				}
+			}
 				
-				// Fecha a stream de leitura
-				fis.close();
-			} catch (Exception e) {
-				System.out.println("mission  failed we get em  nex time");
+			// Fecha a stream de leitura
+			fis.close();
+			
+		} catch (Exception e) {
+			System.out.println("Erro na leitura do arquivo!!");
+		}
+		
+		
+		
+		if (entrada.equals("") == true)
+		{
+			if (args.length != 0)
+			{
+				System.out.println("Arquivo  vazio, usanndo equacao padrao de testes....");
+			}
+			else
+			{
+				System.out.println("N rodou o jar nno  cmd passanno um arquivo txt ccom a equacao booleana como argumento, eu  vou usar  u,ma equacao  teste.............");
 			}
 			
-			entrada = entrada.replaceAll(" ", "");
-			System.out.println(entrada);
-		}
-		else
-		{
-			System.out.println("N rodou o jar nno  cmd passanno um arquivo txt ccom a equacao booleana como argumento, eu  vou usar  u,ma equacao  teste.............");
-			entrada   = "~1 | (0^1 | 0&0)".replaceAll(" ", "");
-			System.out.println(entrada);
+			entrada = equacaoPadrao.replaceAll(" ", "");
 		}
 		
-		// Remocao de whitespaces
-		expressao = entrada.replaceAll(" ", "");
-		
-		// Substituicao dos simbolos 0 e 1 por false e true
-		expressao = expressao.replaceAll("0", "false");
-		expressao = expressao.replaceAll("1", "true");
+		System.out.println(entrada);
 
 		
-		
-		//System.out.println(entrada);
-		//System.out.println(expressao);
-		
-		
-		
+
 		// Parser
 		boolean nadaDeErrado = true;
 		
