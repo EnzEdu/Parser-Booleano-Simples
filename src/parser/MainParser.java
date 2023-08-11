@@ -18,7 +18,7 @@ public class MainParser {
 		
 		
 		
-		String entrada   = "1".replaceAll(" ", "");
+		String entrada   = "~1 | (0^1 | 0&0)".replaceAll(" ", "");
 		String expressao = "";
 		
 		// Remocao de whitespaces
