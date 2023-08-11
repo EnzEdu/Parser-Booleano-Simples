@@ -21,24 +21,28 @@ public class VerificaArgumentosOperacoes {
 				indexInicialProcura = 0;
 				while (entrada.indexOf(op, indexInicialProcura) != -1) {
 					int indexOp = entrada.indexOf(op, indexInicialProcura);
-					char simboloPosterior = entrada.charAt(indexOp + 1);
 					
-					// Verifica se o simbolo seguinte ao operador
-					// eh uma variavel
-					for (char variavel : tokensNumeros)
+					// Analisa o simbolo seguinte ao operador NOT
+					if (indexOp+1 > -1 && indexOp+1 < entrada.length())
 					{
-						if (simboloPosterior == variavel)
+						char simboloSeguinte = entrada.charAt(indexOp + 1);
+					
+						// Verifica se eh uma variavel
+						for (char variavel : tokensNumeros)
+						{
+							if (simboloSeguinte == variavel)
+							{
+								simboloValido2 = true;
+								break;
+							}
+						}
+					
+						// Verifica se eh um operador de precedencia
+						// (abre parenteses)
+						if (simboloSeguinte == tokensOperadores.get(0))
 						{
 							simboloValido2 = true;
-							break;
 						}
-					}
-					
-					// Verifica se o simbolo seguinte ao operador
-					// eh um operador de precedencia (abre parenteses)
-					if (simboloPosterior == tokensOperadores.get(0))
-					{
-						simboloValido2 = true;
 					}
 					
 					
@@ -46,9 +50,8 @@ public class VerificaArgumentosOperacoes {
 					{
 						return false;
 					}
-					
-					
-					indexInicialProcura = entrada.indexOf(op, indexInicialProcura) + 1;
+				
+					indexInicialProcura = indexOp + 1;
 				}
 			}
 			
@@ -57,34 +60,49 @@ public class VerificaArgumentosOperacoes {
 				indexInicialProcura = 0;
 				while (entrada.indexOf(op, indexInicialProcura) != -1) {
 					int indexOp = entrada.indexOf(op, indexInicialProcura);
-					char simboloAnterior  = entrada.charAt(indexOp - 1);
-					char simboloPosterior = entrada.charAt(indexOp + 1);
 					
-					// Verifica se os simbolos em volta do operador
-					// sao variaveis
-					for (char variavel : tokensNumeros)
+					// Analisa o simbolo anterior ao operador
+					if (indexOp-1 > -1 && indexOp-1 < entrada.length())
 					{
-						if (simboloAnterior == variavel)
+						char simboloAnterior = entrada.charAt(indexOp - 1);
+						
+						// Verifica se eh uma variavel
+						for (char variavel : tokensNumeros)
+						{
+							if (simboloAnterior == variavel)
+							{
+								simboloValido1 = true;
+							}
+						}
+						
+						// Verifica se eh um operador de precedencia
+						// (fecha parenteses)
+						if (simboloAnterior == tokensOperadores.get(1))
 						{
 							simboloValido1 = true;
 						}
+					}
+					
+					// Analisa o simbolo seguinte ao operador
+					if (indexOp+1 > -1 && indexOp+1 < entrada.length())
+					{
+						char simboloSeguinte = entrada.charAt(indexOp + 1);
 						
-						if (simboloPosterior == variavel)
+						// Verifica se eh uma variavel
+						for (char variavel : tokensNumeros)
+						{
+							if (simboloSeguinte == variavel)
+							{
+								simboloValido2 = true;
+							}
+						}
+						
+						// Verifica se eh um operador de precedencia
+						// (abre parenteses)
+						if (simboloSeguinte == tokensOperadores.get(0))
 						{
 							simboloValido2 = true;
 						}
-					}
-					
-					// Verifica se os simbolos em volta do operador
-					// sao operadores de precedencia
-					// (fecha parenteses - operador - abre parenteses)
-					if (simboloAnterior == tokensOperadores.get(1))
-					{
-						simboloValido1 = true;
-					}
-					if (simboloPosterior == tokensOperadores.get(0))
-					{
-						simboloValido2 = true;
 					}
 					
 					
@@ -93,8 +111,7 @@ public class VerificaArgumentosOperacoes {
 						return false;
 					}
 					
-					
-					indexInicialProcura = entrada.indexOf(op, indexInicialProcura) + 1;
+					indexInicialProcura = indexOp + 1;
 				}
 			}
 			
