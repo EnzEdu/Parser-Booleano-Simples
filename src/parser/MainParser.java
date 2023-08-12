@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class MainParser {
 	private static int numTestes = 5;
@@ -25,63 +26,20 @@ public class MainParser {
 		
 		
 		
-		try {
-			
-			// Cria o FileInputStream para ler o arquivo passado como parametro
-			FileInputStream fis;
-			if (args.length != 0)
-			{
-				fis = new FileInputStream(args[0]);
-			}
-			else	
-			{
-				fis = new FileInputStream("equacao.txt");
-			}
-				
-			// Cria o BufferedReader
-			BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-			
-			// Faz a leitura linha por linha
-			String linha;
-			int numLinha = -1;
-			while ((linha = br.readLine()) != null)
-			{
-				numLinha++;
-					
-				// Salva apenas a primeira linha do arquivo
-				if (numLinha < 1)
-				{
-					entrada = linha.replaceAll(" ", "");
-				}
-			}
-				
-			// Fecha a stream de leitura
-			fis.close();
-			
-		} catch (Exception e) {
-			System.out.println("Erro na leitura do arquivo!!");
-		}
-		
-		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Digite a equacao booleana: ");
+		entrada = scanner.nextLine();
+		scanner.close();
 		
 		if (entrada.equals("") == true)
 		{
-			if (args.length != 0)
-			{
-				System.out.println("Arquivo  vazio, usanndo equacao padrao de testes....");
-			}
-			else
-			{
-				System.out.println("N rodou o jar nno  cmd passanno um arquivo txt ccom a equacao booleana como argumento, eu  vou usar  u,ma equacao  teste.............");
-			}
-			
+			System.out.println("Arquivo  vazio, usanndo equacao padrao de testes....");
 			entrada = equacaoPadrao.replaceAll(" ", "");
+			System.out.println(entrada);
 		}
 		
-		System.out.println(entrada);
-
 		
-
+		
 		// Parser
 		boolean nadaDeErrado = true;
 		
