@@ -1,4 +1,4 @@
-package exc;
+package testes;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 */
 public class VerificaPosicaoNumeros {
 
-	public static boolean testar(String entrada, ArrayList<Character> tokensOperadores,  ArrayList<Character> tokensNumeros) {
+	public static String testar(String entrada, ArrayList<Character> tokensOperadores,  ArrayList<Character> tokensNumeros) {
 		
 		int indexInicialProcura;
 		
@@ -27,7 +27,7 @@ public class VerificaPosicaoNumeros {
 					if (tokensNumeros.contains(simboloAnterior) == true ||
 						simboloAnterior == tokensOperadores.get(1))
 					{
-						return false;
+						return entrada.substring(indexVariavel - 1, indexVariavel + 1);
 					}
 				}
 			
@@ -40,7 +40,7 @@ public class VerificaPosicaoNumeros {
 					if (tokensNumeros.contains(simboloSeguinte) == true ||
 						simboloSeguinte == tokensOperadores.get(0))
 					{
-						return false;
+						return entrada.substring(indexVariavel, indexVariavel + 2);
 					}
 				}
 			
@@ -49,7 +49,7 @@ public class VerificaPosicaoNumeros {
 			}
 		}
 		
-		return true;
+		return "";
 	}
 	
 }

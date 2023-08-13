@@ -1,13 +1,10 @@
 package parser;
 
-import exc.*;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import testes.*;
 
 public class MainParser {
 	private static int numTestes = 5;
@@ -27,7 +24,7 @@ public class MainParser {
 		
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Digite a equacao booleana: ");
+		System.out.print("Digite a equacao booleana: ");
 		entrada = scanner.nextLine();
 		scanner.close();
 		
@@ -41,23 +38,23 @@ public class MainParser {
 		
 		
 		// Parser
-		boolean nadaDeErrado = true;
+		String strErro = "";
 		
 		int testeAtual;
-		for (testeAtual = 0; (testeAtual < numTestes && nadaDeErrado == true); testeAtual++)
+		for (testeAtual = 0; (testeAtual < numTestes && strErro.equals("")); testeAtual++)
 		{
 			switch (testeAtual)
 			{
-				case 0: nadaDeErrado = VerificaSimbolosGramatica.testar(entrada, tokensOperadores, tokensNumeros);
-									   break;
-				case 1: nadaDeErrado = VerificaNumeroParenteses.testar(entrada);
-									   break;
-				case 2: nadaDeErrado = VerificaOrdenacaoParenteses.testar(entrada);
-									   break;
-				case 3: nadaDeErrado = VerificaArgumentosOperacoes.testar(entrada, tokensOperadores, tokensNumeros);
-									   break;
-				case 4: nadaDeErrado = VerificaPosicaoNumeros.testar(entrada, tokensOperadores, tokensNumeros);
-									   break;
+				case 0: strErro = VerificaSimbolosGramatica.testar(entrada, tokensOperadores, tokensNumeros);
+								  break;
+				case 1: strErro = VerificaNumeroParenteses.testar(entrada);
+								  break;
+				case 2: strErro = VerificaOrdenacaoParenteses.testar(entrada);
+								  break;
+				case 3: strErro = VerificaArgumentosOperacoes.testar(entrada, tokensOperadores, tokensNumeros);
+								  break;
+				case 4: strErro = VerificaPosicaoNumeros.testar(entrada, tokensOperadores, tokensNumeros);
+								  break;
 			}
 		}
 		testeAtual--;
@@ -65,12 +62,12 @@ public class MainParser {
 		
 		
 		// Imprime o resultado da analise sintatica
-		if (nadaDeErrado == true) {
+		if (strErro.equals("")) {
 			System.out.println("Sintaxe correta!");
 		}
 		else
 		{
-			ApresentaExcecao.imprimir(testeAtual);
+			ApresentaExcecao.imprimir(testeAtual, strErro);
 		}
 
 	}

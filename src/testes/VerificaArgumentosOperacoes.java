@@ -1,4 +1,4 @@
-package exc;
+package testes;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 */
 public class VerificaArgumentosOperacoes {
 
-	public static boolean testar(String entrada, ArrayList<Character> tokensOperadores,  ArrayList<Character> tokensNumeros) {
+	public static String testar(String entrada, ArrayList<Character> tokensOperadores,  ArrayList<Character> tokensNumeros) {
 		
 		int indexInicialProcura;
 		
@@ -48,7 +48,7 @@ public class VerificaArgumentosOperacoes {
 					
 					if (simboloValido2 == false)
 					{
-						return false;
+						return entrada.substring(indexOp, indexOp + 2);
 					}
 				
 					indexInicialProcura = indexOp + 1;
@@ -60,6 +60,7 @@ public class VerificaArgumentosOperacoes {
 				indexInicialProcura = 0;
 				while (entrada.indexOf(op, indexInicialProcura) != -1) {
 					boolean simboloValido1 = false, simboloValido2 = false;
+					
 					int indexOp = entrada.indexOf(op, indexInicialProcura);
 					
 					// Analisa o simbolo anterior ao operador
@@ -109,7 +110,7 @@ public class VerificaArgumentosOperacoes {
 					
 					if (simboloValido1 == false || simboloValido2 == false)
 					{
-						return false;
+						return entrada.substring(indexOp - 1, indexOp + 2);
 					}
 					
 					indexInicialProcura = indexOp + 1;
@@ -118,7 +119,7 @@ public class VerificaArgumentosOperacoes {
 			
 		}
 		
-		return true;
+		return "";
 	}
 	
 }

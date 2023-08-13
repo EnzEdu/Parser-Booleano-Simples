@@ -1,4 +1,4 @@
-package exc;
+package testes;
 
 import java.util.ArrayList;
 
@@ -8,17 +8,17 @@ import java.util.ArrayList;
 */
 public class VerificaSimbolosGramatica {
 
-	public static boolean testar(String entrada, ArrayList<Character> tokensOperadores,  ArrayList<Character> tokensNumeros) {
+	public static String testar(String entrada, ArrayList<Character> tokensOperadores,  ArrayList<Character> tokensNumeros) {
 		
 		for (char simbolo : entrada.toCharArray()) {
 			if (tokensNumeros.indexOf(simbolo) == -1) {
 				if (tokensOperadores.indexOf(simbolo) == -1) {
-					return false;
+					return Character.toString(simbolo);
 				}
 			}
 		}
 		
-		return true;
+		return "";
 	}
 	
 }

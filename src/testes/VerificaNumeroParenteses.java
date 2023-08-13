@@ -1,4 +1,4 @@
-package exc;
+package testes;
 
 /*
  * Se houver, verifica todos os pares de parenteses
@@ -7,7 +7,7 @@ package exc;
 */
 public class VerificaNumeroParenteses {
 
-	public static boolean testar(String entrada) {
+	public static String testar(String entrada) {
 		
 		int indexInicialProcura;
 		
@@ -27,12 +27,17 @@ public class VerificaNumeroParenteses {
 			indexInicialProcura = entrada.indexOf(')', indexInicialProcura) + 1;
 		}
 		
-		if (numeroParentesesAbertos != numeroParentesesFechados)
+		if (numeroParentesesAbertos < numeroParentesesFechados)
 		{
-			return false;
+			return "(";
 		}
 		
-		return true;
+		if (numeroParentesesAbertos > numeroParentesesFechados)
+		{
+			return ")";
+		}
+		
+		return "";
 	}
 	
 }

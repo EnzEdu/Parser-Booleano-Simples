@@ -2,20 +2,20 @@ package parser;
 
 public class ApresentaExcecao {
 
-	public static void imprimir(int idTeste) {
+	public static void imprimir(int idTeste, String strErro) {
 		
 		switch (idTeste)
 		{
-			case 0: System.out.println("Erro de sintaxe! A expressao possui um simbolo nao pertencente a gramatica.");
+			case 0: System.out.println("Erro de sintaxe! Simbolo invalido \"" + strErro + "\" detectado dentro da sentenca!");
 					break;
-			case 1: System.out.println("Erro de sintaxe! A expressao possui um erro no numero de parenteses.");
+			case 1: System.out.println("Erro de sintaxe! Detectado erro no numero de parenteses, pois a sentenca carece de ao menos um \"" + strErro + "\"!");
 					break;
-			case 2: System.out.println("Erro de sintaxe! A expressao possui um par de parenteses na ordem errada.");
+			case 2: System.out.println("Erro de sintaxe! Detectado erro de ordenacao entre os pares de parenteses da sentenca!");
 					break;
-			case 3: System.out.println("Erro de sintaxe! A expressao possui uma operacao invalida.");
+			case 3: System.out.println("Erro de sintaxe! Detectado erro na utilizacao de operador em \"" + strErro + "\"!");
 					break;
-			case 4: System.out.println("Erro de sintaxe! A expressao possui uma interacao invalida com alguma das variaveis.");
-			break;
+			case 4: System.out.println("Erro de sintaxe! Detectada concatenacao invalida de variaveis em \"" + strErro + "\"!");
+					break;
 		}
 		
 	}

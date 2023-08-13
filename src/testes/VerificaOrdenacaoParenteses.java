@@ -1,4 +1,4 @@
-package exc;
+package testes;
 
 /*
  * Se houver, verifica a ordenacao de todos os pares de parenteses
@@ -7,7 +7,7 @@ package exc;
 */
 public class VerificaOrdenacaoParenteses {
 
-	public static boolean testar(String entrada) {
+	public static String testar(String entrada) {
 		
 		int indexInicialProcura;
 		
@@ -17,13 +17,13 @@ public class VerificaOrdenacaoParenteses {
 			int indexFechaParenteses = entrada.indexOf(')', indexAbreParenteses);
 			
 			if (indexFechaParenteses == -1) {
-				return false;
+				return entrada.substring(entrada.lastIndexOf(')', indexAbreParenteses), indexAbreParenteses + 1);
 			}
 			
 			indexInicialProcura = indexAbreParenteses + 1;
 		}
 		
-		return true;
+		return "";
 	}
 	
 }
