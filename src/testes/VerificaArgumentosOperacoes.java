@@ -110,7 +110,32 @@ public class VerificaArgumentosOperacoes {
 					
 					if (simboloValido1 == false || simboloValido2 == false)
 					{
-						return entrada.substring(indexOp - 1, indexOp + 2);
+						if (indexOp-1 > -1 && indexOp-1 < entrada.length())
+						{
+							if (indexOp+1 > -1 && indexOp+1 < entrada.length())
+							{
+								System.out.println("Caso 1!");
+								return entrada.substring(indexOp - 1, indexOp + 2);
+							}
+							else
+							{
+								System.out.println("Caso 2!");
+								return entrada.substring(indexOp - 1, indexOp + 1);
+							}
+						}
+						else
+						{
+							if (indexOp+1 > -1 && indexOp+1 < entrada.length())
+							{
+								System.out.println("Caso 3!");
+								return entrada.substring(indexOp, indexOp + 2);
+							}
+							else
+							{
+								System.out.println("Caso 4!");
+								return entrada.substring(indexOp, indexOp + 1);
+							}
+						}
 					}
 					
 					indexInicialProcura = indexOp + 1;
