@@ -33,12 +33,13 @@ public class VerificaPosicaoNumeros {
 			
 			
 				// Verifica se o simbolo seguinte a variavel eh
-				// uma outra variavel ou um abre parenteses
+				// uma outra variavel ou um abre parenteses ou um operador NOT
 				if (indexVariavel+1 > -1 && indexVariavel+1 < entrada.length())
 				{
 					char simboloSeguinte = entrada.charAt(indexVariavel + 1);
 					if (tokensNumeros.contains(simboloSeguinte) == true ||
-						simboloSeguinte == tokensOperadores.get(0))
+						simboloSeguinte == tokensOperadores.get(0) ||
+						simboloSeguinte == tokensOperadores.get(2))
 					{
 						return entrada.substring(indexVariavel, indexVariavel + 2);
 					}
