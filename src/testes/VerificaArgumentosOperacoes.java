@@ -105,6 +105,14 @@ public class VerificaArgumentosOperacoes {
 						{
 							simboloValido2 = true;
 						}
+						
+						
+						// Verifica se eh o argumento a direita eh um numero negativo
+						// (til)
+						if (simboloSeguinte == tokensOperadores.get(2))
+						{
+							simboloValido2 = true;
+						}
 					}
 					
 					
@@ -114,12 +122,10 @@ public class VerificaArgumentosOperacoes {
 						{
 							if (indexOp+1 > -1 && indexOp+1 < entrada.length())
 							{
-								System.out.println("Caso 1!");
 								return entrada.substring(indexOp - 1, indexOp + 2);
 							}
 							else
 							{
-								System.out.println("Caso 2!");
 								return entrada.substring(indexOp - 1, indexOp + 1);
 							}
 						}
@@ -127,12 +133,10 @@ public class VerificaArgumentosOperacoes {
 						{
 							if (indexOp+1 > -1 && indexOp+1 < entrada.length())
 							{
-								System.out.println("Caso 3!");
 								return entrada.substring(indexOp, indexOp + 2);
 							}
 							else
 							{
-								System.out.println("Caso 4!");
 								return entrada.substring(indexOp, indexOp + 1);
 							}
 						}
