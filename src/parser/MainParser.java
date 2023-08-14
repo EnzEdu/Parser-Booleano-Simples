@@ -30,7 +30,7 @@ public class MainParser {
 		
 		if (entrada.equals("") == true)
 		{
-			System.out.println("Arquivo  vazio, usanndo equacao padrao de testes....");
+			System.out.println("Passou equacao vazia, usando equacao padrao de testes....");
 			entrada = equacaoPadrao.replaceAll(" ", "");
 			System.out.println(entrada);
 		}
