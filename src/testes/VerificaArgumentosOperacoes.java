@@ -48,7 +48,14 @@ public class VerificaArgumentosOperacoes {
 					
 					if (simboloValido2 == false)
 					{
-						return entrada.substring(indexOp, indexOp + 2);
+						if (indexOp+1 > -1 && indexOp+1 < entrada.length())
+						{
+							return entrada.substring(indexOp, indexOp + 2);
+						}
+						else
+						{
+							return "~";
+						}
 					}
 				
 					indexInicialProcura = indexOp + 1;
